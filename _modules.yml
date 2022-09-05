@@ -1,0 +1,6 @@
+config:
+    renderer: markdown
+
+modules:
+  1_import-project:
+    name: Import Project  
