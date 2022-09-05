@@ -1,0 +1,279 @@
+kind: DeploymentConfig
+apiVersion: apps.openshift.io/v1
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftNewApp
+  resourceVersion: '14236799'
+  name: web2
+  uid: 5972f171-11e3-45e2-8983-8bcf25687d94
+  creationTimestamp: '2022-08-30T02:18:48Z'
+  generation: 7
+  managedFields:
+    - manager: oc
+      operation: Update
+      apiVersion: apps.openshift.io/v1
+      time: '2022-08-30T02:18:48Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:openshift.io/generated-by': {}
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:app.kubernetes.io/component': {}
+            'f:app.kubernetes.io/instance': {}
+        'f:spec':
+          'f:replicas': {}
+          'f:selector':
+            .: {}
+            'f:deploymentconfig': {}
+          'f:strategy':
+            'f:activeDeadlineSeconds': {}
+            'f:rollingParams':
+              .: {}
+              'f:intervalSeconds': {}
+              'f:maxSurge': {}
+              'f:maxUnavailable': {}
+              'f:timeoutSeconds': {}
+              'f:updatePeriodSeconds': {}
+            'f:type': {}
+          'f:template':
+            .: {}
+            'f:metadata':
+              .: {}
+              'f:annotations':
+                .: {}
+                'f:openshift.io/generated-by': {}
+              'f:creationTimestamp': {}
+              'f:labels':
+                .: {}
+                'f:deploymentconfig': {}
+            'f:spec':
+              .: {}
+              'f:containers':
+                .: {}
+                'k:{"name":"web"}':
+                  .: {}
+                  'f:env':
+                    'k:{"name":"ROUTE_SUBDOMAIN"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"CHE_URL"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"CHE_USER_PASSWORD"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"KEYCLOAK_URL"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"LOG_TO_STDOUT"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"CONTENT_URL_PREFIX"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    .: {}
+                    'k:{"name":"MASTER_URL"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"CONSOLE_URL"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"OPENSHIFT_USER_PASSWORD"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                    'k:{"name":"WORKSHOPS_URLS"}':
+                      .: {}
+                      'f:name': {}
+                  'f:imagePullPolicy': {}
+                  'f:name': {}
+                  'f:ports':
+                    .: {}
+                    'k:{"containerPort":8080,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:protocol': {}
+                  'f:resources': {}
+                  'f:terminationMessagePath': {}
+                  'f:terminationMessagePolicy': {}
+              'f:dnsPolicy': {}
+              'f:restartPolicy': {}
+              'f:schedulerName': {}
+              'f:securityContext': {}
+              'f:terminationGracePeriodSeconds': {}
+    - manager: Mozilla
+      operation: Update
+      apiVersion: apps.openshift.io/v1
+      time: '2022-09-05T01:30:43Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:template':
+            'f:spec':
+              'f:containers':
+                'k:{"name":"web"}':
+                  'f:env':
+                    'k:{"name":"WORKSHOPS_URLS"}':
+                      'f:value': {}
+    - manager: openshift-controller-manager
+      operation: Update
+      apiVersion: apps.openshift.io/v1
+      time: '2022-09-05T01:41:54Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:template':
+            'f:spec':
+              'f:containers':
+                'k:{"name":"web"}':
+                  'f:image': {}
+          'f:triggers': {}
+        'f:status':
+          'f:updatedReplicas': {}
+          'f:readyReplicas': {}
+          'f:conditions':
+            .: {}
+            'k:{"type":"Available"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Progressing"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+          'f:details':
+            .: {}
+            'f:causes': {}
+            'f:message': {}
+          'f:replicas': {}
+          'f:availableReplicas': {}
+          'f:observedGeneration': {}
+          'f:unavailableReplicas': {}
+          'f:latestVersion': {}
+  namespace: guides
+  labels:
+    app: web
+    app.kubernetes.io/component: web
+    app.kubernetes.io/instance: web
+spec:
+  strategy:
+    type: Rolling
+    rollingParams:
+      updatePeriodSeconds: 1
+      intervalSeconds: 1
+      timeoutSeconds: 600
+      maxUnavailable: 25%
+      maxSurge: 25%
+    resources: {}
+    activeDeadlineSeconds: 21600
+  triggers:
+    - type: ConfigChange
+    - type: ImageChange
+      imageChangeParams:
+        automatic: true
+        containerNames:
+          - web
+        from:
+          kind: ImageStreamTag
+          namespace: guides
+          name: 'web:latest'
+        lastTriggeredImage: >-
+          quay.io/jamesfalkner/workshopper@sha256:85c28e299c5f100a771b6952bd028816200068413037fd150e75980f22bb62c0
+  replicas: 1
+  revisionHistoryLimit: 10
+  test: false
+  selector:
+    deploymentconfig: web
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        deploymentconfig: web
+      annotations:
+        openshift.io/generated-by: OpenShiftNewApp
+    spec:
+      containers:
+        - name: web
+          image: >-
+            quay.io/jamesfalkner/workshopper@sha256:85c28e299c5f100a771b6952bd028816200068413037fd150e75980f22bb62c0
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          env:
+            - name: CHE_URL
+              value: >-
+                https://codeready-codeready.apps.cluster-lmn5m.lmn5m.sandbox600.opentlc.com
+            - name: CHE_USER_PASSWORD
+              value: openshift
+            - name: CONSOLE_URL
+              value: >-
+                https://console-openshift-console.apps.cluster-lmn5m.lmn5m.sandbox600.opentlc.com
+            - name: CONTENT_URL_PREFIX
+              value: >-
+                https://raw.githubusercontent.com/RedHat-Middleware-Workshops/dg8-workshop/ocp-4.7/docs
+            - name: KEYCLOAK_URL
+              value: >-
+                https://keycloak-codeready.apps.cluster-lmn5m.lmn5m.sandbox600.opentlc.com
+            - name: LOG_TO_STDOUT
+              value: 'true'
+            - name: MASTER_URL
+              value: 'https://api.cluster-lmn5m.lmn5m.sandbox600.opentlc.com:6443'
+            - name: OPENSHIFT_USER_PASSWORD
+              value: openshift
+            - name: ROUTE_SUBDOMAIN
+              value: apps.cluster-lmn5m.lmn5m.sandbox600.opentlc.com
+            - name: WORKSHOPS_URLS
+              value: >-
+                https://raw.githubusercontent.com/relessawy/datagrid_workshop_guide/main/docs/_dg8-workshop-guides.yml
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+status:
+  observedGeneration: 7
+  details:
+    message: manual change
+    causes:
+      - type: Manual
+  availableReplicas: 1
+  unavailableReplicas: 0
+  latestVersion: 6
+  updatedReplicas: 1
+  conditions:
+    - type: Progressing
+      status: 'True'
+      lastUpdateTime: '2022-09-05T01:41:21Z'
+      lastTransitionTime: '2022-09-05T01:41:18Z'
+      reason: NewReplicationControllerAvailable
+      message: replication controller "web-6" successfully rolled out
+    - type: Available
+      status: 'True'
+      lastUpdateTime: '2022-09-05T01:41:54Z'
+      lastTransitionTime: '2022-09-05T01:41:54Z'
+      message: Deployment config has minimum availability.
+  replicas: 1
+  readyReplicas: 1
