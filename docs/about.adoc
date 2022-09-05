@@ -1,7 +1,7 @@
 = Preface
 :experimental:
 
-You are a *ninja* or an architect creating world-class applications and solutions. Well, all apps don't necessarily live in just one box, and for the recent past, Cloud is not only just a bunch of machines in a server room but a lot more that gives us the ability to hyper scale. All applications must use a network to communicate with each other, whether they connect to a database, a web service or storage, or other services. 
+You are a *developer* or an architect creating world-class applications and solutions. Well, all apps don't necessarily live in just one box, and for the recent past, Cloud is not only just a bunch of machines in a server room but a lot more that gives us the ability to hyper scale. All applications must use a network to communicate with each other, whether they connect to a database, a web service or storage, or other services. 
 
 Creating a distributed application means one has to take specials care of latency, performance, and, most importantly, the responsiveness to the end-users. End users could be systems or humans; what's important is that you have a timely and consistent response. There are a lot many things one can do to optimize the stack. Most importantly, this workshop focuses on one thing i.e., Red Hat Data Grid.
 
