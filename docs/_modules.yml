@@ -10,8 +10,6 @@ modules:
     name: Setting up
   installation:
     name: Kubernetes native Cache service
-  remotecache:
-    name: Quarkus Remote Cache app
   monitoring:
     name: Monitoring and metrics  
   crosssite:

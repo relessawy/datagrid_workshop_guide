@@ -42,18 +42,18 @@ https://github.com/relessawy/datagrid-labs
 
 image::gitcloneURL.png[crw, 600, align="center"]
 
-Keep the default repository location, and click on ***Select Repository Location*** button.
+Keep the default repository location, and click on **Select Repository Location** button.
 
 image::selectLocation.png[crw, 600, align="center"] 
 
-When prompted choose to add the cloned repository to the current workspace by clicking ***Add*** button
+When prompted choose to add the cloned repository to the current workspace by clicking **Add** button
 
 The project is now imported into your workspace. Following screenshot shows the workspace after the lab projects have been imported.
 
-image::workspacecmdview.png[crw, 600, align="center"] 
+image::workspacecmdview.png[crw, 900, align="center"] 
 
 1. On the left you can see the project explorer with the heading *EXPLORER:PROJECTS*. Project explorer can be used to navigate to source files. Once you click any source file. it will open up in the editor.
-2. On the right is the `Workspace Command View` with the heading *MYWORKSPACE:WORKSPACE*. In this view we have created point and click commands. These commands will be used through out the workshop labs.
+2. On the right is the `Workspace Command View` with the heading *MYWORKSPACE:WORKSPACE*. You can access this view by clicking the **Container Icon** to the right. In this view we have created point and click commands. These commands will be used through out the workshop labs.
 
 image::workspaceview.png[crw, 800, align="center"]
 
