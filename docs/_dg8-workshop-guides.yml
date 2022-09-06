@@ -26,7 +26,6 @@ modules:
   - installation
   - monitoring
   - crosssite
-  - createcache
   - restapi
   - sessionexternalization
   - conclusion

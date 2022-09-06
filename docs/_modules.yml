@@ -9,13 +9,11 @@ modules:
   settingup:
     name: Setting up
   installation:
-    name: Kubernetes native Cache service
+    name: Kubernetes native cache service
   monitoring:
     name: Monitoring and metrics  
   crosssite:
-    name: Kubernetes native Cross site clusters  
-  createcache:
-    name: Create Cache via Custom Resources      
+    name: Cross site replication  
   restapi:
     name: Cache via REST API
   exercises:

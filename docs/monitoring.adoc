@@ -62,10 +62,6 @@ metadata:
     infinispan.org/monitoring: 'true'
 ----
 
-The following picture also shows an example.
-image::monitoring-dg-yaml-view.png[Monitoring - Topology, 700]
-
-
 This means that our datagrid is exposing metrics at the /metrics end point for Prometheus to gather.
 
 With Openshift 4.6+ you can now also get the prometheus metrics. Lets take a look at the metrics from our Data grid services. 
@@ -111,21 +107,22 @@ Lets setup a Grafana instance as well.
 
 Head over back the the `Installed Operators` and then click `Grafana` as shown in the picture below.
 
-image::monitoring-create-grafana.png[Monitoring - Topology, 700]
+image::monitoring-create-grafana.png[Monitoring - Topology, 900]
 
-And then press the `Create Grafana` button. Once done you should see a form as following.
+And then press the `Create Instance` button. Once done you should see a form as following.
 
 image::monitoring-create-grafana-form.png[Monitoring - Topology, 700]
 
 Click create, this could take a minute or so until the Grafana instance comes up.
 
-Move the the Networking > Routes menu. You should see a similar route as in the picture below
+Move to the Networking > Routes menu. You should see a similar route as in the picture below
 
-image::monitoring-create-grafana-route.png[Monitoring - Topology, 700]
+image::monitoring-create-grafana-route.png[Monitoring - Topology, 900]
 
 Perfect now we have a Grafana instance setup. In order to ensure we can get metrics from Data grid into Grafana via prometheus we will setup a datasource.
 
-In the Openshift console, ensure you are in the project: {{ USER_ID }}-cache and then press the `+` sign on the top right corner and load the following yaml. 
+In the Openshift console, ensure you are in the project: {{ USER_ID }}-cache and then press the `+` sign on the top right corner and load the following yaml.
+Do not click **Create** yet 
 
 [source, shell, role="copypaste"]
 ----
@@ -161,9 +158,12 @@ For this head off to your CodeReady workspaces Terminal and run the following co
 oc serviceaccounts get-token infinispan-monitoring
 ----
 
-The output would give you a large String i.e is the actual token we will use for the Grafana datasource. Copy this token and head back to the Openshift console and replace the `<YOUR  BEARER TOKEN HERE>` with your actual token. The token is long and encrypted. It enables Grafana to integrate with Data grid. Press create.
+The output would give you a large String i.e is the actual token we will use for the Grafana datasource. Copy this token and head back to the Openshift console and replace the `<YOUR  BEARER TOKEN HERE>` with your actual token. The token is long and encrypted. It enables Grafana to integrate with Data grid. 
+Now yo can press create.
 
-Perfect! You are moving along nicely. One final step. Lets configure our dashboard. Data grid should be able to watch this namespace e.g. incase Grafana was in another namespace. In our case it isn't. So all we need to do is create a dashboard yaml. Again click the `+` sign on the top right corner in your Openshift console to create a new yaml config.
+Perfect! You are moving along nicely. One final step. Lets configure our dashboard. Data grid should be able to watch this namespace e.g. incase Grafana was in another namespace. 
+In our case it isn't. So all we need to do is create a dashboard yaml. 
+Again click the `+` sign on the top right corner in your Openshift console to create a new yaml config.
 
 
 [source, shell, role="copypaste"]

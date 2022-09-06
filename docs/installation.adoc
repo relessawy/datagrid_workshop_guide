@@ -239,9 +239,10 @@ Ensure you have the correct number of nodes before you restart the cluster.
 
 [source, shell, role="copypaste"]
 ----
-$ oc get po
+oc get infinispan  datagrid-service -o=jsonpath='{.status.replicasWantedAtRestart}'
 ----
 
+The number of desired replicas for datagrid-service on restart is 2
 Change the spec.replicas field to the same number of nodes to restart the datagrid cluster.
 
 [source, shell, role="copypaste"]
@@ -250,7 +251,7 @@ spec:
   replicas: 2
 ----
 
-The DataGrid will start again.
+The DataGrid will start again and if you run the command one more time, the desired number of replicas on restart variable will not be set.
 
 === Recap
 <1> You created your first CR
