@@ -10,7 +10,7 @@ To get started, {{ CHE_URL }}[access the CodeReady Workspaces instance^] and log
 
 image::che-login.png[cdw, 700, align="center"]
 
-By logging in to CodeReady, you get access to your development workspace. We have already created a workspace for you. To access your workspace, click on the open link to the right of the screen.
+By logging in to CodeReady, you get access to your development workspace. We have already created a workspace for you. To access your workspace, click on the `open` link to the right of the screen.
 
 image::openworkspace.png[cdw, 700, align="center"]
 
@@ -31,7 +31,7 @@ Let's import our first project. Click on **Git Clone..**
 
 image::gitclone.png[cdw, 600, align="center"]
 
-Step through the prompts, using the following value for **Repository URL**. If you use *FireFox*, it may end up pasting extra spaces at the end, so just press backspace after pasting:
+Use the following value for **Repository URL**, then press enter and step through the prompts.  If you use *FireFox*, it may end up pasting extra spaces at the end, so just press backspace after pasting:
 
 [source, shell, role="copypaste"]
 ----
@@ -46,7 +46,7 @@ Keep the default repository location, and click on **Select Repository Location*
 
 image::selectLocation.png[crw, 600, align="center"] 
 
-When prompted choose to add the cloned repository to the current workspace by clicking **Add** button
+When prompted choose to open the repository by clicking the **Open** button
 
 The project is now imported into your workspace. Following screenshot shows the workspace after the lab projects have been imported.
 
@@ -138,14 +138,15 @@ Finally, *CacheManager* is a heavy object; it does a lot, so no need to keep it 
 ----
 
 Great, now we have all we require to run this Exercise. Let's try to run it.
-You can choose to run it via the Workspace command view by clicking on `Exercise1`. Or you can just open a new terminal from the same view `>_ New Terminal` and run the it manually using maven commands. Both methods would work.
+From the Workspace command view (Right menu -> Container icon), open a new terminal via `>_ New Terminal` link
+Enter the folder for the exercises
 
-[IMPORTANT]
-====
+[source, shell, role="copypaste"]
+----
+cd dg8-exercises
+----
 
-Remember incase of running maven directly via terminal the path to the exercises project is as follows. `/projects/dg8-workshop-labs/dg8-exercises`. Make sure you are in this directory before you run maven commands from the terminal.
-
-====
+Now run the following maven command
 
 [source, shell, role="copypaste"]
 ----
@@ -155,11 +156,11 @@ mvn exec:java -Dexec.mainClass=org.acme.Exercise1
 
 [NOTE]
 ====
-The first time a build runs, it may need to download and cache dependencies. Future builds will go much faster!
+The first time a build runs it will take some time to download and cache dependencies. Future builds will go much faster!
 ====
 
 You should be able to see an output similar to the following.
-[source, shell, role="copypaste"]
+[source, shell]
 ----
 Jun 22, 2020 6:40:02 PM org.infinispan.factories.GlobalComponentRegistry preStart
 INFO: ISPN000128: Infinispan version: Red Hat Data Grid 'Turia' 10.1.5.Final-redhat-00001

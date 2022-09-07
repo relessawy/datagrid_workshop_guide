@@ -17,7 +17,7 @@ modules:
   restapi:
     name: Cache via REST API
   exercises:
-    name: Getting started with Data Grid
+    name: Lab 1 - Getting started with Data Grid
   sessionexternalization:
     name: Externalizing Sessions
   appendix:
