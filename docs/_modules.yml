@@ -9,17 +9,17 @@ modules:
   settingup:
     name: Setting up
   installation:
-    name: Kubernetes native cache service
+    name: Lab 2 - DataGrid Operator
   monitoring:
-    name: Monitoring and metrics  
+    name: Lab 3 - Monitoring and metrics  
   crosssite:
-    name: Cross site replication  
-  restapi:
-    name: Cache via REST API
+    name: Lab 4 - Cross site replication  
   exercises:
     name: Lab 1 - Getting started with Data Grid
   sessionexternalization:
-    name: Externalizing Sessions
+    name: Lab 5 - Externalizing Sessions
+  createcache:
+    name: Bonus Lab - Create Cache using K8s CR
   appendix:
     name: Setting up your own environment
   conclusion:

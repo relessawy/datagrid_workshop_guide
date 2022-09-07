@@ -75,7 +75,7 @@ Login to OpenShift using the following command
 
 [source, shell, role="copypaste"]
 ----
-oc login -u {{ USER_ID }} -p openshift --server={{ CONSOLE_URL }}:6443
+oc login -u {{ USER_ID }} -p openshift --server=https://api.cluster-mvl7v.mvl7v.sandbox288.opentlc.com:6443
 ----
 
 Now let's retrieve the DataGrif CR for DataGrid Operator.
